@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Labels_AppliesToDocNo">
+          <DataField>Labels_AppliesToDocNo</DataField>
+        </Field>
+        <Field Name="Labels_Amount">
+          <DataField>Labels_Amount</DataField>
+        </Field>
+        <Field Name="Labels_AmountInclTax">
+          <DataField>Labels_AmountInclTax</DataField>
+        </Field>
+        <Field Name="Labels_BillTo">
+          <DataField>Labels_BillTo</DataField>
+        </Field>
+        <Field Name="Labels_BillToCustomerNo">
+          <DataField>Labels_BillToCustomerNo</DataField>
+        </Field>
+        <Field Name="Labels_CompanyBankAccountNo">
+          <DataField>Labels_CompanyBankAccountNo</DataField>
+        </Field>
+        <Field Name="Labels_CompanyBankBranch">
+          <DataField>Labels_CompanyBankBranch</DataField>
+        </Field>
+        <Field Name="Labels_CompanyBankName">
+          <DataField>Labels_CompanyBankName</DataField>
+        </Field>
+        <Field Name="Labels_CompanyGiroNo">
+          <DataField>Labels_CompanyGiroNo</DataField>
+        </Field>
+        <Field Name="Labels_CompanyCustomGiroNo">
+          <DataField>Labels_CompanyCustomGiroNo</DataField>
+        </Field>
+        <Field Name="Labels_CompanyIBAN">
+          <DataField>Labels_CompanyIBAN</DataField>
+        </Field>
+        <Field Name="Labels_CompanyLegalOffice">
+          <DataField>Labels_CompanyLegalOffice</DataField>
+        </Field>
+        <Field Name="Labels_CompanyPhoneNo">
+          <DataField>Labels_CompanyPhoneNo</DataField>
+        </Field>
+        <Field Name="Labels_CompanySWIFT">
+          <DataField>Labels_CompanySWIFT</DataField>
+        </Field>
+        <Field Name="Labels_CompanyRegNo">
+          <DataField>Labels_CompanyRegNo</DataField>
+        </Field>
+        <Field Name="Labels_CompanyTaxRegNo">
+          <DataField>Labels_CompanyTaxRegNo</DataField>
+        </Field>
+        <Field Name="Labels_CustomerPostalBarCode">
+          <DataField>Labels_CustomerPostalBarCode</DataField>
+        </Field>
+        <Field Name="Labels_CustomerTaxRegNo">
+          <DataField>Labels_CustomerTaxRegNo</DataField>
+        </Field>
+        <Field Name="Labels_Description">
+          <DataField>Labels_Description</DataField>
+        </Field>
+        <Field Name="Labels_DiscountAmt">
+          <DataField>Labels_DiscountAmt</DataField>
+        </Field>
+        <Field Name="Labels_DiscountPct">
+          <DataField>Labels_DiscountPct</DataField>
+        </Field>
+        <Field Name="Labels_DocumentNo">
+          <DataField>Labels_DocumentNo</DataField>
+        </Field>
+        <Field Name="Labels_DocumentDate">
+          <DataField>Labels_DocumentDate</DataField>
+        </Field>
+        <Field Name="Labels_DueDate">
+          <DataField>Labels_DueDate</DataField>
+        </Field>
+        <Field Name="Labels_Email">
+          <DataField>Labels_Email</DataField>
+        </Field>
+        <Field Name="Labels_HomePage">
+          <DataField>Labels_HomePage</DataField>
+        </Field>
+        <Field Name="Labels_InvoiceDiscount">
+          <DataField>Labels_InvoiceDiscount</DataField>
+        </Field>
+        <Field Name="Labels_InvoiceDiscountBase">
+          <DataField>Labels_InvoiceDiscountBase</DataField>
+        </Field>
+        <Field Name="Labels_LegalEntityType">
+          <DataField>Labels_LegalEntityType</DataField>
+        </Field>
+        <Field Name="Labels_LocalCurrency">
+          <DataField>Labels_LocalCurrency</DataField>
+        </Field>
+        <Field Name="Labels_LineAmount">
+          <DataField>Labels_LineAmount</DataField>
+        </Field>
+        <Field Name="Labels_OrderNo">
+          <DataField>Labels_OrderNo</DataField>
+        </Field>
+        <Field Name="Labels_No">
+          <DataField>Labels_No</DataField>
+        </Field>
+        <Field Name="Labels_PaymentTerms">
+          <DataField>Labels_PaymentTerms</DataField>
+        </Field>
+        <Field Name="Labels_PaymentMethod">
+          <DataField>Labels_PaymentMethod</DataField>
+        </Field>
+        <Field Name="Labels_PostingDate">
+          <DataField>Labels_PostingDate</DataField>
+        </Field>
+        <Field Name="Labels_Quantity">
+          <DataField>Labels_Quantity</DataField>
+        </Field>
+        <Field Name="Labels_Salesperson">
+          <DataField>Labels_Salesperson</DataField>
+        </Field>
+        <Field Name="Labels_SellToCustomerNo">
+          <DataField>Labels_SellToCustomerNo</DataField>
+        </Field>
+        <Field Name="Labels_ShipmentDate">
+          <DataField>Labels_ShipmentDate</DataField>
+        </Field>
+        <Field Name="Labels_ShipmentMethod">
+          <DataField>Labels_ShipmentMethod</DataField>
+        </Field>
+        <Field Name="Labels_ShipmentNo">
+          <DataField>Labels_ShipmentNo</DataField>
+        </Field>
+        <Field Name="Labels_ShipmentQty">
+          <DataField>Labels_ShipmentQty</DataField>
+        </Field>
+        <Field Name="Labels_ShipTo">
+          <DataField>Labels_ShipTo</DataField>
+        </Field>
+        <Field Name="Labels_Subtotal">
+          <DataField>Labels_Subtotal</DataField>
+        </Field>
+        <Field Name="Labels_UnitPrice">
+          <DataField>Labels_UnitPrice</DataField>
+        </Field>
+        <Field Name="Labels_UnitOfMeasure">
+          <DataField>Labels_UnitOfMeasure</DataField>
+        </Field>
+        <Field Name="Labels_Total">
+          <DataField>Labels_Total</DataField>
+        </Field>
+        <Field Name="Labels_TotalExcludingTax">
+          <DataField>Labels_TotalExcludingTax</DataField>
+        </Field>
+        <Field Name="Labels_TotalIncludingTax">
+          <DataField>Labels_TotalIncludingTax</DataField>
+        </Field>
+        <Field Name="Labels_TaxAmount">
+          <DataField>Labels_TaxAmount</DataField>
+        </Field>
+        <Field Name="Labels_TaxAmountSpec">
+          <DataField>Labels_TaxAmountSpec</DataField>
+        </Field>
+        <Field Name="Labels_TaxBase">
+          <DataField>Labels_TaxBase</DataField>
+        </Field>
+        <Field Name="Labels_TaxClause">
+          <DataField>Labels_TaxClause</DataField>
+        </Field>
+        <Field Name="Labels_TaxIdentifier">
+          <DataField>Labels_TaxIdentifier</DataField>
+        </Field>
+        <Field Name="Labels_TaxInvDiscBase">
+          <DataField>Labels_TaxInvDiscBase</DataField>
+        </Field>
+        <Field Name="Labels_TaxPct">
+          <DataField>Labels_TaxPct</DataField>
+        </Field>
+        <Field Name="Labels_TaxRegistrationNo">
+          <DataField>Labels_TaxRegistrationNo</DataField>
+        </Field>
+        <Field Name="Labels_YourReference">
+          <DataField>Labels_YourReference</DataField>
+        </Field>
+        <Field Name="Labels_HWCoordinatorName">
+          <DataField>Labels_HWCoordinatorName</DataField>
+        </Field>
+        <Field Name="Labels_HWCoordinator">
+          <DataField>Labels_HWCoordinator</DataField>
+        </Field>
+        <Field Name="Company_Address1">
+          <DataField>Company_Address1</DataField>
+        </Field>
+        <Field Name="Company_Address2">
+          <DataField>Company_Address2</DataField>
+        </Field>
+        <Field Name="Company_Address3">
+          <DataField>Company_Address3</DataField>
+        </Field>
+        <Field Name="Company_Address4">
+          <DataField>Company_Address4</DataField>
+        </Field>
+        <Field Name="Company_Address5">
+          <DataField>Company_Address5</DataField>
+        </Field>
+        <Field Name="Company_Address6">
+          <DataField>Company_Address6</DataField>
+        </Field>
+        <Field Name="Company_Address7">
+          <DataField>Company_Address7</DataField>
+        </Field>
+        <Field Name="Company_Address8">
+          <DataField>Company_Address8</DataField>
+        </Field>
+        <Field Name="Company_HomePage">
+          <DataField>Company_HomePage</DataField>
+        </Field>
+        <Field Name="Company_Email">
+          <DataField>Company_Email</DataField>
+        </Field>
+        <Field Name="Company_PhoneNo">
+          <DataField>Company_PhoneNo</DataField>
+        </Field>
+        <Field Name="Company_GiroNo">
+          <DataField>Company_GiroNo</DataField>
+        </Field>
+        <Field Name="Company_BankName">
+          <DataField>Company_BankName</DataField>
+        </Field>
+        <Field Name="Company_BankBranchNo">
+          <DataField>Company_BankBranchNo</DataField>
+        </Field>
+        <Field Name="Company_BankAccountNo">
+          <DataField>Company_BankAccountNo</DataField>
+        </Field>
+        <Field Name="Company_IBAN">
+          <DataField>Company_IBAN</DataField>
+        </Field>
+        <Field Name="Company_SWIFT">
+          <DataField>Company_SWIFT</DataField>
+        </Field>
+        <Field Name="Company_RegistrationNo">
+          <DataField>Company_RegistrationNo</DataField>
+        </Field>
+        <Field Name="Company_TaxRegNo">
+          <DataField>Company_TaxRegNo</DataField>
+        </Field>
+        <Field Name="Company_LegalOffice">
+          <DataField>Company_LegalOffice</DataField>
+        </Field>
+        <Field Name="Company_CustomGiro">
+          <DataField>Company_CustomGiro</DataField>
+        </Field>
+        <Field Name="Company_Logo">
+          <DataField>Company_Logo</DataField>
+        </Field>
+        <Field Name="Customer_Address1">
+          <DataField>Customer_Address1</DataField>
+        </Field>
+        <Field Name="Customer_Address2">
+          <DataField>Customer_Address2</DataField>
+        </Field>
+        <Field Name="Customer_Address3">
+          <DataField>Customer_Address3</DataField>
+        </Field>
+        <Field Name="Customer_Address4">
+          <DataField>Customer_Address4</DataField>
+        </Field>
+        <Field Name="Customer_Address5">
+          <DataField>Customer_Address5</DataField>
+        </Field>
+        <Field Name="Customer_Address6">
+          <DataField>Customer_Address6</DataField>
+        </Field>
+        <Field Name="Customer_Address7">
+          <DataField>Customer_Address7</DataField>
+        </Field>
+        <Field Name="Customer_Address8">
+          <DataField>Customer_Address8</DataField>
+        </Field>
+        <Field Name="Customer_LegalEntityType">
+          <DataField>Customer_LegalEntityType</DataField>
+        </Field>
+        <Field Name="Customer_CustomerPostalBarCode">
+          <DataField>Customer_CustomerPostalBarCode</DataField>
+        </Field>
+        <Field Name="Shipment_Address1">
+          <DataField>Shipment_Address1</DataField>
+        </Field>
+        <Field Name="Shipment_Address2">
+          <DataField>Shipment_Address2</DataField>
+        </Field>
+        <Field Name="Shipment_Address3">
+          <DataField>Shipment_Address3</DataField>
+        </Field>
+        <Field Name="Shipment_Address4">
+          <DataField>Shipment_Address4</DataField>
+        </Field>
+        <Field Name="Shipment_Address5">
+          <DataField>Shipment_Address5</DataField>
+        </Field>
+        <Field Name="Shipment_Address6">
+          <DataField>Shipment_Address6</DataField>
+        </Field>
+        <Field Name="Shipment_Address7">
+          <DataField>Shipment_Address7</DataField>
+        </Field>
+        <Field Name="Shipment_Address8">
+          <DataField>Shipment_Address8</DataField>
+        </Field>
+        <Field Name="Shipment_ShipmentMethod">
+          <DataField>Shipment_ShipmentMethod</DataField>
+        </Field>
+        <Field Name="Header_AppliesToDocNo">
+          <DataField>Header_AppliesToDocNo</DataField>
+        </Field>
+        <Field Name="Header_BillToCustomerNo">
+          <DataField>Header_BillToCustomerNo</DataField>
+        </Field>
+        <Field Name="Header_CurrencyCode">
+          <DataField>Header_CurrencyCode</DataField>
+        </Field>
+        <Field Name="Header_DocumentDate">
+          <DataField>Header_DocumentDate</DataField>
+        </Field>
+        <Field Name="Header_DocumentType">
+          <DataField>Header_DocumentType</DataField>
+        </Field>
+        <Field Name="Header_DocumentNo">
+          <DataField>Header_DocumentNo</DataField>
+        </Field>
+        <Field Name="Header_DueDate">
+          <DataField>Header_DueDate</DataField>
+        </Field>
+        <Field Name="Header_ExchangeRate">
+          <DataField>Header_ExchangeRate</DataField>
+        </Field>
+        <Field Name="Header_GlobalLocationNumber">
+          <DataField>Header_GlobalLocationNumber</DataField>
+        </Field>
+        <Field Name="Header_PaymentTerms">
+          <DataField>Header_PaymentTerms</DataField>
+        </Field>
+        <Field Name="Header_PaymentMethod">
+          <DataField>Header_PaymentMethod</DataField>
+        </Field>
+        <Field Name="Header_LegalEntityType">
+          <DataField>Header_LegalEntityType</DataField>
+        </Field>
+        <Field Name="Header_OrderNo">
+          <DataField>Header_OrderNo</DataField>
+        </Field>
+        <Field Name="Header_PostingDate">
+          <DataField>Header_PostingDate</DataField>
+        </Field>
+        <Field Name="Header_QuoteNo">
+          <DataField>Header_QuoteNo</DataField>
+        </Field>
+        <Field Name="Header_Salesperson">
+          <DataField>Header_Salesperson</DataField>
+        </Field>
+        <Field Name="Header_SelltoCustomerNo">
+          <DataField>Header_SelltoCustomerNo</DataField>
+        </Field>
+        <Field Name="Header_CustomerName">
+          <DataField>Header_CustomerName</DataField>
+        </Field>
+        <Field Name="Header_YourReference">
+          <DataField>Header_YourReference</DataField>
+        </Field>
+        <Field Name="Header_TaxRegistrationNo">
+          <DataField>Header_TaxRegistrationNo</DataField>
+        </Field>
+        <Field Name="BillToCust_VATRegNo">
+          <DataField>BillToCust_VATRegNo</DataField>
+        </Field>
+        <Field Name="Header_CurrencyIBAN">
+          <DataField>Header_CurrencyIBAN</DataField>
+        </Field>
+        <Field Name="Header_CurrencyAccountNo">
+          <DataField>Header_CurrencyAccountNo</DataField>
+        </Field>
+        <Field Name="HeaderSWIFT">
+          <DataField>HeaderSWIFT</DataField>
+        </Field>
+        <Field Name="Header_HWCoordinator">
+          <DataField>Header_HWCoordinator</DataField>
+        </Field>
+        <Field Name="Header_HWCoordinatorName">
+          <DataField>Header_HWCoordinatorName</DataField>
+        </Field>
+        <Field Name="Lines_Type">
+          <DataField>Lines_Type</DataField>
+        </Field>
+        <Field Name="Lines_No">
+          <DataField>Lines_No</DataField>
+        </Field>
+        <Field Name="Lines_VariantCode">
+          <DataField>Lines_VariantCode</DataField>
+        </Field>
+        <Field Name="Lines_Description">
+          <DataField>Lines_Description</DataField>
+        </Field>
+        <Field Name="Lines_Quantity">
+          <DataField>Lines_Quantity</DataField>
+        </Field>
+        <Field Name="Lines_UnitOfMeasure">
+          <DataField>Lines_UnitOfMeasure</DataField>
+        </Field>
+        <Field Name="Lines_UnitPrice">
+          <DataField>Lines_UnitPrice</DataField>
+        </Field>
+        <Field Name="Lines_Amount">
+          <DataField>Lines_Amount</DataField>
+        </Field>
+        <Field Name="Lines_TaxIdentifier">
+          <DataField>Lines_TaxIdentifier</DataField>
+        </Field>
+        <Field Name="Lines_Tax">
+          <DataField>Lines_Tax</DataField>
+        </Field>
+        <Field Name="Lines_AmountIncludingTax">
+          <DataField>Lines_AmountIncludingTax</DataField>
+        </Field>
+        <Field Name="Lines_AmountIncludingTaxFormat">
+          <DataField>Lines_AmountIncludingTaxFormat</DataField>
+        </Field>
+        <Field Name="Lines_DiscountAmt">
+          <DataField>Lines_DiscountAmt</DataField>
+        </Field>
+        <Field Name="Lines_DiscountPct">
+          <DataField>Lines_DiscountPct</DataField>
+        </Field>
+        <Field Name="Lines_QuantityShipped">
+          <DataField>Lines_QuantityShipped</DataField>
+        </Field>
+        <Field Name="Lines_ReturnReceiptNo">
+          <DataField>Lines_ReturnReceiptNo</DataField>
+        </Field>
+        <Field Name="Lines_ReturnReasonCode">
+          <DataField>Lines_ReturnReasonCode</DataField>
+        </Field>
+        <Field Name="Lines_ShipmentDate">
+          <DataField>Lines_ShipmentDate</DataField>
+        </Field>
+        <Field Name="Lines_ShipmentNo">
+          <DataField>Lines_ShipmentNo</DataField>
+        </Field>
+        <Field Name="Lines_OrderNoLine">
+          <DataField>Lines_OrderNoLine</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_DiscountAmount">
+          <DataField>TaxAmountLines_DiscountAmount</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_DiscountAmountFormat">
+          <DataField>TaxAmountLines_DiscountAmountFormat</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_DiscountBase">
+          <DataField>TaxAmountLines_DiscountBase</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_DiscountBaseFormat">
+          <DataField>TaxAmountLines_DiscountBaseFormat</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_Amount">
+          <DataField>TaxAmountLines_Amount</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_AmountFormat">
+          <DataField>TaxAmountLines_AmountFormat</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_TaxAmount">
+          <DataField>TaxAmountLines_TaxAmount</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_TaxAmountFormat">
+          <DataField>TaxAmountLines_TaxAmountFormat</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_TaxBase">
+          <DataField>TaxAmountLines_TaxBase</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_TaxBaseFormat">
+          <DataField>TaxAmountLines_TaxBaseFormat</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_TaxIdentifier">
+          <DataField>TaxAmountLines_TaxIdentifier</DataField>
+        </Field>
+        <Field Name="TaxAmountLines_TaxPct">
+          <DataField>TaxAmountLines_TaxPct</DataField>
+        </Field>
+        <Field Name="ReportTotals_Subtotal">
+          <DataField>ReportTotals_Subtotal</DataField>
+        </Field>
+        <Field Name="ReportTotals_InvoiceDiscount">
+          <DataField>ReportTotals_InvoiceDiscount</DataField>
+        </Field>
+        <Field Name="ReportTotals_SubtotalLessDiscount">
+          <DataField>ReportTotals_SubtotalLessDiscount</DataField>
+        </Field>
+        <Field Name="ReportTotals_TotalExcludingTax">
+          <DataField>ReportTotals_TotalExcludingTax</DataField>
+        </Field>
+        <Field Name="ReportTotals_Tax">
+          <DataField>ReportTotals_Tax</DataField>
+        </Field>
+        <Field Name="ReportTotals_PaymentDiscOnTax">
+          <DataField>ReportTotals_PaymentDiscOnTax</DataField>
+        </Field>
+        <Field Name="ReportTotals_TotalIncludingTax">
+          <DataField>ReportTotals_TotalIncludingTax</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
