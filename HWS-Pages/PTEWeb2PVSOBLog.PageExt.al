@@ -1,3 +1,4 @@
+/*
 pageextension 50127 "PTE Web2PV OB LOG" extends "PVS Web2PVS Outbound Event Log"
 {
     layout
@@ -20,3 +21,4 @@ pageextension 50127 "PTE Web2PV OB LOG" extends "PVS Web2PVS Outbound Event Log"
         }
     }
 }
+*/
